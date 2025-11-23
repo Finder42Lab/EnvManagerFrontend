@@ -1,4 +1,3 @@
-import { Card, CardBody } from '@heroui/react'
 import { createFileRoute, useSearch } from '@tanstack/react-router'
 import { MainControl } from '../components'
 import MainEmptyProject from '../components/main/mainEmpty.tsx'
@@ -23,22 +22,20 @@ function RouteComponent() {
 	const { selectedProjectId } = useSearch({ from: '/' })
 
 	return (
-		<Card>
-			<CardBody className="grid grid-cols-[250px_1fr] grid-rows-[fit-content(100px)_1fr_fit-content(100px)] grid-flow-col h-[85vh] min-h-[500px] p-0">
-				<MainPageHeader />
-				<ProjectGroupsSelector />
-				<MainControl />
+		<div className="grid grid-cols-[350px_1fr] grid-rows-[fit-content(100px)_1fr_fit-content(100px)] grid-flow-col h-[100vh] w-full min-h-[500px] p-0">
+			<MainPageHeader />
+			<ProjectGroupsSelector />
+			<MainControl />
 
-				{!selectedProjectId && <MainEmptyProject />}
-				{selectedProjectId && (
-					<>
-						<SelectedProjectInfo projectId={selectedProjectId} />
-						<MainSelectedProjectVariables
-							projectId={selectedProjectId}
-						/>
-					</>
-				)}
-			</CardBody>
-		</Card>
+			{!selectedProjectId && <MainEmptyProject />}
+			{selectedProjectId && (
+				<>
+					<SelectedProjectInfo projectId={selectedProjectId} />
+					<MainSelectedProjectVariables
+						projectId={selectedProjectId}
+					/>
+				</>
+			)}
+		</div>
 	)
 }

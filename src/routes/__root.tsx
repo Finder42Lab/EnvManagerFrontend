@@ -19,11 +19,9 @@ export const Route = createRootRoute({
 function RootComponent() {
 	return (
 		<main className="flex justify-center items-center h-[100dvh] w-full p-4">
-			<div className="container">
-				<Outlet />
-				<ModalManager />
-				<ToastProvider />
-			</div>
+			<Outlet />
+			<ModalManager />
+			<ToastProvider />
 		</main>
 	)
 }

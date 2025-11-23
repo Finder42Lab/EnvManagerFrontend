@@ -18,3 +18,8 @@ export interface IWriteVariable {
 	is_secret?: boolean
 	project_id?: string
 }
+
+export interface IVariableBulkCreateRequest {
+	project_id: string
+	variables_text: string
+}

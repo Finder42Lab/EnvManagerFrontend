@@ -6,7 +6,12 @@ import type {
 	IProjectGroup,
 	IVariable,
 } from '../types'
-import type { IWriteGroup, IWriteProject, IWriteVariable } from './types.ts'
+import type {
+	IVariableBulkCreateRequest,
+	IWriteGroup,
+	IWriteProject,
+	IWriteVariable,
+} from './types.ts'
 
 const HOST = import.meta.env.VITE_API_HOST
 
@@ -84,8 +89,18 @@ export async function writeVariable(variable: IWriteVariable) {
 export async function deleteVariable(variableId: string) {
 	return await sendRequest<IVariable>({
 		host: HOST,
-		url: `/api/v1/variables/${variableId}`,
+		url: `/api/v1/variables/${variableId}/`,
 		method: 'DELETE',
+	})
+}
+
+export async function bulkCreateVariables(body: IVariableBulkCreateRequest) {
+	return await sendRequest<IVariable>({
+		host: HOST,
+		url: `/api/v1/variables/bulk_create/`,
+		method: 'POST',
+		// @ts-expect-error ругается на типы
+		data: body,
 	})
 }
 

@@ -4,6 +4,7 @@ import WriteProjectModal from './modals/writeProjectModal.tsx'
 import DeleteProjectModal from './modals/deleteProjectModal.tsx'
 import DeleteGroupModal from './modals/deleteGroupModal.tsx'
 import WriteVariableModal from './modals/writeVariableModal.tsx'
+import BulkCreateVariableModal from './modals/bulkCreateVariableModal.tsx'
 
 const ModalManager = () => {
 	const { modal_id, modal_type, selectedProjectId } = useSearch({ from: '/' })
@@ -20,6 +21,12 @@ const ModalManager = () => {
 						variableId={modal_id}
 						projectId={selectedProjectId}
 					/>
+				)
+			)
+		case 'bulkCreateVariables':
+			return (
+				selectedProjectId && (
+					<BulkCreateVariableModal projectId={selectedProjectId} />
 				)
 			)
 		case 'deleteProject':
