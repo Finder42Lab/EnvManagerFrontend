@@ -8,6 +8,9 @@ ARG VERSION
 ENV VITE_API_HOST=$API_HOST
 ENV VITE_VERSION=$VERSION
 
+RUN echo "VITE_API_HOST=${API_HOST}" > .env
+RUN echo "VITE_VERSION=${VERSION}" > .env
+
 RUN npm i
 RUN npm run build
 
