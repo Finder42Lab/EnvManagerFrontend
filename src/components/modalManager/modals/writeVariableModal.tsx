@@ -64,7 +64,7 @@ const WriteVariableModal: FC<IProps> = ({ variableId, projectId }) => {
 
 		onSuccess: () => {
 			qc.invalidateQueries({ queryKey: ['projectVariables', projectId] })
-			close()
+			form.reset({ name: '', value: '' })
 		},
 	})
 
