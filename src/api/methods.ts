@@ -42,6 +42,7 @@ export async function writeProject(body: IWriteProject) {
 		host: HOST,
 		url: '/api/v1/projects/',
 		method: 'POST',
+		// @ts-expect-error ругается на типы
 		data: body,
 	})
 }
@@ -75,6 +76,7 @@ export async function writeVariable(variable: IWriteVariable) {
 		host: HOST,
 		url: '/api/v1/variables/',
 		method: 'POST',
+		// @ts-expect-error ругается на типы
 		data: variable,
 	})
 }
@@ -108,6 +110,7 @@ export async function writeGroup(body: IWriteGroup) {
 		host: HOST,
 		url: '/api/v1/groups/',
 		method: 'POST',
+		// @ts-expect-error ругается на типы
 		data: body,
 	})
 }
