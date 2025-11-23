@@ -65,6 +65,7 @@ const VariableGroup: FC<IProps> = ({ variables }) => {
 	return (
 		<div>
 			<Table
+				isCompact
 				aria-label="Группа"
 				topContent={<ParentLink project={variables[0].project} />}
 			>
